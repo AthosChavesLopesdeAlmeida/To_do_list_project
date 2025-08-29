@@ -20,6 +20,12 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
 nav {
   border-right: 1px solid black;
   padding-top: 10px;
@@ -28,10 +34,6 @@ nav {
   border-bottom-right-radius: 15px;
   border-top-right-radius: 15px;
   width: 15vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 nav > h1 {
@@ -110,3 +112,79 @@ nav > div > button {
   background-color: var(--secondary-red);
 }
 
+main {
+  width: 85vw;
+  height: 100vh;
+}
+
+#currentProject {
+  font-size: 3em;
+  margin-left: 20px;
+}
+
+#createTaskModal > h2 {
+  text-align: center;
+}
+
+#createTaskModal {
+  width: 400px;
+  height: 300px;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+#taskInputs {
+  margin-top: 20px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+input {
+  padding: 5px;
+  margin: 10px 0;
+}
+
+#submitButton, #submitProjectButton {
+  width: 40%;
+  padding: 10px;
+  margin: 40px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-red);
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#createProjectModal {
+  width: 400px;
+  height: 300px;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  text-align: center;
+}
+
+#projectInputs {
+  margin-top: 20px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px; 
+}
+
+#submitProjectButton {
+  margin: 10px 0; 
+}

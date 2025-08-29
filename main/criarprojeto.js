@@ -1,12 +1,11 @@
-const addProjectBtn = document.getElementById('addProjectBtn')
-const projectList = document.getElementById('project-list')
+const createProjectBtn = document.getElementById('addProjectBtn')
+const createProjectModal = document.getElementById('createProjectModal')
+const createTaskModal = document.getElementById('createTaskModal')
+const submitProjectButton = document.getElementById('submitProjectButton')
+let projects = []
 
-class Project {
-  constructor(name) {
-    this.name = name
-  }
+createProjectBtn.addEventListener('click', function(){
+  createProjectModal.style.display = 'block'
+  createTaskModal.style.display = 'none'
+})
 
-  createProject() {
-    const btn = document.createElement('button')
-  }
-}

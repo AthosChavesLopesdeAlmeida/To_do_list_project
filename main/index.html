@@ -7,28 +7,51 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <nav>
-      <h1>Lista de tarefas</h1>
+    <div class="container">
+      <nav>
+        <h1>Lista de tarefas</h1>
+        
+        <div id="projects">
+          <p class="section-title">Projetos</p>
+          <ul id="project-list">
+            <li>
+              <button class="nav-btn default">Default</button>
+            </li>
+          </ul>
+        </div>
+        
+        <div id="actions">
+          <p class="section-title">Ações</p>
+          <button id="addTaskBtn" class="action-btn">Adicionar tarefa</button>
+          <button id="addProjectBtn" class="action-btn">Adicionar projeto</button>
+        </div>
       
-      <div id="projects">
-        <p class="section-title">Projetos</p>
-        <ul id="project-list">
-          <li>
-            <button class="nav-btn default">Todas</button>
-          </li>
-        </ul>
-      </div>
-      
-      <div id="actions">
-        <p class="section-title">Ações</p>
-        <button id="addTaskBtn" class="action-btn">Adicionar tarefa</button>
-        <button id="addProjectBtn" class="action-btn">Adicionar projeto</button>
-      </div>
-    
-    </nav>
-    <main>
+      </nav>
+      <main>
+        <header>
+          <h1 id="currentProject">Default</h1>
+        </header>
+      </main>
 
-    </main>
+      <div id="createTaskModal">
+        <h2>Criar nova tarefa:</h2>
+        <div id="taskInputs">
+          <input type="text" name="taskName" id="taskName" placeholder="Nome da tarefa">
+          <input type="date" name="taskDueDate" id="taskDueDate">
+          <select name="taskProject" id="taskProject">Projeto</select>
+          <button id="submitButton">Criar</button>
+        </div>
+      </div>
+
+      <div id="createProjectModal">
+        <h2>Criar novo projeto:</h2>
+        <div id="projectInputs">
+          <input type="text" name="projectName" id="projectName" placeholder="Nome do projeto">
+          <button id="submitProjectButton">Criar</button>
+        </div>
+        
+      </div>
+    </div>
     <script type="module" src="index.js"></script>
   </body>
 </html>
