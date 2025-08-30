@@ -14,9 +14,7 @@
         <div id="projects">
           <p class="section-title">Projetos</p>
           <ul id="project-list">
-            <li>
-              <button class="nav-btn default">Default</button>
-            </li>
+            
           </ul>
         </div>
         
@@ -29,16 +27,24 @@
       </nav>
       <main>
         <header>
-          <h1 id="currentProject">Default</h1>
+          <h1 id="currentProject">CRIE UM PROJETO.</h1>
         </header>
+
+        <div class="task">
+          <h4 class="taskTitle">Olá</h4>
+          <p id="taskDeadline"></p>
+          <p id="taskDelete"></p>
+        </div>
       </main>
 
       <div id="createTaskModal">
         <h2>Criar nova tarefa:</h2>
         <div id="taskInputs">
-          <input type="text" name="taskName" id="taskName" placeholder="Nome da tarefa">
+          <input type="text" name="taskNameInput" id="taskNameInput" placeholder="Nome da tarefa">
           <input type="date" name="taskDueDate" id="taskDueDate">
-          <select name="taskProject" id="taskProject">Projeto</select>
+          <select name="taskProject" id="taskProject">
+            <option value="" disabled selected>Selecione o projeto</option>
+          </select>
           <button id="submitButton">Criar</button>
         </div>
       </div>
@@ -49,8 +55,8 @@
           <input type="text" name="projectName" id="projectName" placeholder="Nome do projeto">
           <button id="submitProjectButton">Criar</button>
         </div>
-        
       </div>
+
     </div>
     <script type="module" src="index.js"></script>
   </body>

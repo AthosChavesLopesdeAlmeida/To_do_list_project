@@ -32,7 +32,7 @@ nav {
   text-align: center;
   background-color: var(--gray-light);
   border-bottom-right-radius: 15px;
-  border-top-right-radius: 15px;
+
   width: 15vw;
 }
 
@@ -85,7 +85,7 @@ nav > div > button {
   transition: background 0.2s;
 }
 
-.nav-btn.default {
+.nav-btn {
   background-color: var(--primary-red);
   color: var(--white);
 }
@@ -187,4 +187,27 @@ input {
 
 #submitProjectButton {
   margin: 10px 0; 
+}
+
+
+main > header {
+  background-color: var(--gray-light);
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid black;
+}
+
+.task {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 60%;
+  height: 80px;
+  background-color: var(--primary-red);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 0 10px;
 }
