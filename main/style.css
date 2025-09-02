@@ -211,3 +211,7 @@ main > header {
   margin-left: 20px;
   padding: 0 10px;
 }
+
+.active {
+  display: block;
+}
