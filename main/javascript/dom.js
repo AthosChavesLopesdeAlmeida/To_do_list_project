@@ -1,4 +1,4 @@
-let els = {}
+let els = {};
 
 document.addEventListener('DOMContentLoaded', () => {
   els = {
@@ -15,5 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     taskDueDateInput: document.getElementById('taskDueDateInput'),
     taskProject: document.getElementById('taskProject'),
     submitTaskBtn: document.getElementById('submitButton')
-  }
-})
+  };
+});
+
+export default els;
