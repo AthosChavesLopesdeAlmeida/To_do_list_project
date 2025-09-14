@@ -5,19 +5,20 @@
 }
 
 :root {
-  --primary-red: #E44332;
-  --secondary-red: #FA7268;
-  --background-light: #FAFAFA;
-  --background-dark: #23272F;
-  --gray-light: #E4E6EB;
-  --gray-medium: #B3B3B3;
-  --gray-dark: #5C5C5C;
-  --white: #FFFFFF;
+  --discord-primary: #5865F2;
+  --discord-background: #313338;
+  --discord-sidebar: #2B2D31;
+  --discord-header: #23272A;
+  --discord-text: #F2F3F5;
+  --discord-muted: #B5BAC1;
+  --discord-border: #202225;
+  --discord-card: #383A40;
 }
-
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: var(--discord-background);
+  color: var(--discord-text);
 }
 
 .container {
@@ -27,17 +28,19 @@ body {
 }
 
 nav {
-  border-right: 1px solid black;
+  border-right: 1px solid var(--discord-border);
   padding-top: 10px;
   text-align: center;
-  background-color: var(--gray-light);
+  background-color: var(--discord-sidebar);
   border-bottom-right-radius: 15px;
-
   width: 15vw;
 }
 
 nav > h1 {
   padding-bottom: 40px;
+  color: var(--discord-primary);
+  font-size: 1.3em;
+  letter-spacing: 1px;
 }
 
 nav > div > button {
@@ -45,17 +48,22 @@ nav > div > button {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: var(--primary-red);
-  color: var(--white);
+  background-color: var(--discord-primary);
+  color: var(--discord-text);
   font-weight: bold;
   cursor: pointer;
   width: 60%;
+  transition: background 0.2s;
+}
+
+nav > div > button:hover {
+  background-color: #4752c4;
 }
 
 .section-title {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: bold;
-  color: var(--gray-dark);
+  color: var(--discord-muted);
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -77,22 +85,17 @@ nav > div > button {
   margin: 5px 0;
   border: none;
   border-radius: 5px;
-  background-color: var(--gray-light);
-  color: var(--gray-dark);
-  font-weight: bold;
+  background-color: var(--discord-card);
+  color: var(--discord-text);
+  font-weight: 500;
   cursor: pointer;
   text-align: left;
-  transition: background 0.2s;
-}
-
-.nav-btn {
-  background-color: var(--primary-red);
-  color: var(--white);
+  transition: background 0.2s, color 0.2s;
 }
 
 .nav-btn:hover {
-  background-color: var(--secondary-red);
-  color: var(--white);
+  background-color: var(--discord-primary);
+  color: var(--discord-text);
 }
 
 .action-btn {
@@ -101,25 +104,31 @@ nav > div > button {
   margin: 5px 0;
   border: none;
   border-radius: 5px;
-  background-color: var(--primary-red);
-  color: var(--white);
+  background-color: var(--discord-card);
+  color: var(--discord-text);
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .action-btn:hover {
-  background-color: var(--secondary-red);
+  background-color: var(--discord-primary);
+  color: var(--discord-text);
 }
 
 main {
   width: 85vw;
   height: 100vh;
+  background-color: var(--discord-background);
+  color: var(--discord-text);
 }
 
 #currentProject {
-  font-size: 3em;
+  font-size: 2.2em;
   margin-left: 20px;
+  color: var(--discord-primary);
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 #createTaskModal > h2 {
@@ -129,13 +138,16 @@ main {
 #createTaskModal {
   width: 400px;
   height: 300px;
-  border: 1px solid black;
+  border: 1px solid var(--discord-border);
   border-radius: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
+  background-color: var(--discord-header);
+  color: var(--discord-text);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.4);
 }
 
 #taskInputs {
@@ -147,8 +159,12 @@ main {
 }
 
 input {
-  padding: 5px;
+  padding: 7px;
   margin: 10px 0;
+  background-color: var(--discord-card);
+  color: var(--discord-text);
+  border: 1px solid var(--discord-border);
+  border-radius: 4px;
 }
 
 #submitButton, #submitProjectButton {
@@ -157,16 +173,21 @@ input {
   margin: 40px 0;
   border: none;
   border-radius: 5px;
-  background-color: var(--primary-red);
-  color: var(--white);
+  background-color: var(--discord-primary);
+  color: var(--discord-text);
   font-weight: bold;
   cursor: pointer;
+  transition: background 0.2s;
+}
+
+#submitButton:hover, #submitProjectButton:hover {
+  background-color: #4752c4;
 }
 
 #createProjectModal {
   width: 400px;
   height: 300px;
-  border: 1px solid black;
+  border: 1px solid var(--discord-border);
   border-radius: 10px;
   position: absolute;
   top: 50%;
@@ -174,6 +195,9 @@ input {
   transform: translate(-50%, -50%);
   display: none;
   text-align: center;
+  background-color: var(--discord-header);
+  color: var(--discord-text);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.4);
 }
 
 #projectInputs {
@@ -189,20 +213,19 @@ input {
   margin: 10px 0; 
 }
 
-
 main > header {
-  background-color: var(--gray-light);
+  background-color: var(--discord-sidebar);
   width: 100%;
   display: block;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--discord-border);
 }
 
 .task {
-  border: 1px solid black;
+  border: 1px solid var(--discord-border);
   border-radius: 10px;
   width: 60%;
   height: 80px;
-  background-color: var(--primary-red);
+  background-color: var(--discord-card);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -210,6 +233,7 @@ main > header {
   margin-top: 20px;
   margin-left: 20px;
   padding: 0 10px;
+  color: var(--discord-text);
 }
 
 .active {

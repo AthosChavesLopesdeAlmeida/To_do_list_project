@@ -1,7 +1,5 @@
-let els = {};
-
-document.addEventListener('DOMContentLoaded', () => {
-  els = {
+export default function getEls() {
+  return {
     projectList: document.getElementById('projectsList'),
     addProjectBtn: document.getElementById('addProjectBtn'),
     currentProjectTitle: document.getElementById('currentProject'),
@@ -13,9 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createTaskModal: document.getElementById('createTaskModal'),
     taskNameInput: document.getElementById('taskNameInput'),
     taskDueDateInput: document.getElementById('taskDueDateInput'),
-    taskProject: document.getElementById('taskProject'),
+    taskProjectInput: document.getElementById('taskProject'),
     submitTaskBtn: document.getElementById('submitButton')
   };
-});
-
-export default els;
+}
