@@ -1,4 +1,5 @@
 import getEls from './dom.js';
+import { showTasksForProject } from './render.js';
 
 // factory function do projeto
 export function createProject(name) {
@@ -25,9 +26,10 @@ export function addProjectButton(project) {
   
   btn.addEventListener('click', () => {
     if (els.currentProjectTitle) {
-      els.currentProjectTitle.innerHTML = project.getName()
+      els.currentProjectTitle.innerHTML = project.getName();
     }
-  })
+    showTasksForProject(project.getId());
+  });
   
   li.appendChild(btn);
   if (els.projectList) {

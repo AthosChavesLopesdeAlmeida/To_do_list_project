@@ -12,6 +12,14 @@ export default function getEls() {
     taskNameInput: document.getElementById('taskNameInput'),
     taskDueDateInput: document.getElementById('taskDueDateInput'),
     taskProjectInput: document.getElementById('taskProject'),
-    submitTaskBtn: document.getElementById('submitButton')
+    submitTaskBtn: document.getElementById('submitButton'),
+
+    taskInterface: document.getElementsByClassName('task'),
+    taskTitleInterface: document.getElementsByClassName('taskTitle'),
+    taskDueDateInterface: document.getElementsByClassName('taskDeadline'),
+
+    mainContent: document.getElementById('container'),
+
+    tasksContainer: document.getElementById('tasksContainer')
   };
 }

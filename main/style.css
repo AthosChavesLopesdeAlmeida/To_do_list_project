@@ -223,7 +223,7 @@ main > header {
 .task {
   border: 1px solid var(--discord-border);
   border-radius: 10px;
-  width: 60%;
+  width: 40%;
   height: 80px;
   background-color: var(--discord-card);
   display: flex;

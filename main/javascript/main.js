@@ -1,76 +1,117 @@
 import getEls from './dom.js';
 import { createProject, addProjectButton } from './criarProjeto.js';
 import { createTask } from './criarTarefa.js';
+import { renderProjectsTasks, createTaskInterface } from './render.js'
 
-// Projeto
-const projetos = [];
+// Array global de projetos
+export const projetos = [];
 
+
+
+
+
+// Função para registrar um novo projeto
+function handleCreateProject(name) {
+  const project = createProject(name);
+  projetos.push(project);
+  return project;
+}
+
+
+
+
+
+// Função para adicionar projeto ao select de tarefas
+function addProjectToSelect(project, selectEl) {
+  const option = document.createElement('option');
+  option.value = project.getId();
+  option.innerHTML = project.getName();
+  selectEl.appendChild(option);
+}
+
+
+
+
+
+// Função para criar tarefa e adicionar ao projeto correto
+function handleCreateTask(title, dueDate, projectId) {
+  const task = createTask(title, dueDate, projectId);
+  const project = projetos.find(p => p.getId() === projectId);
+  if (project) {
+    project.addTask(task);
+    console.log('Tarefas do projeto:', project.getTasks());
+    return task;
+  }
+  return null;
+}
+
+
+
+
+// Event listeners
 document.addEventListener('DOMContentLoaded', () => {
   const els = getEls();
+
+
+
+
+  // Abrir modal de criar projeto
   if (els.addProjectBtn) {
     els.addProjectBtn.addEventListener('click', () => {
       els.createProjectModal.style.display = 'block';
       els.createTaskModal.style.display = 'none';
     });
   }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-  const els = getEls();
+
+
 
   // Salvar novo projeto
   if (els.submitProjectBtn) {
     els.submitProjectBtn.addEventListener('click', () => {
-      const project = createProject(els.projectNameInput.value);
-      projetos.push(project);
+      const name = els.projectNameInput.value;
+      if (!name.trim()) return;
+      const project = handleCreateProject(name);
       addProjectButton(project);
-
-      // Adicionar ao select de projetos na criação de tarefas
       if (els.taskProjectInput) {
-        const option = document.createElement('option');
-        option.value = project.getId();
-        option.textContent = project.getName();
-        els.taskProjectInput.appendChild(option);
+        addProjectToSelect(project, els.taskProjectInput);
       }
-
       els.createProjectModal.style.display = 'none';
       els.projectNameInput.value = '';
     });
   }
-});
 
-// Tarefa
 
-document.addEventListener('DOMContentLoaded', () => {
-  const els = getEls();
+
+
+  // Abrir modal de criar tarefa
   if (els.addTaskBtn) {
     els.addTaskBtn.addEventListener('click', () => {
       els.createTaskModal.style.display = 'block';
       els.createProjectModal.style.display = 'none';
-    })
+    });
   }
-})
 
-document.addEventListener('DOMContentLoaded', () => {
-  const els = getEls();
+
+
+
+  // Salvar nova tarefa
   if (els.submitTaskBtn) {
     els.submitTaskBtn.addEventListener('click', () => {
       els.createTaskModal.style.display = 'none';
-
-      // Pegue os valores dos inputs
       const title = els.taskNameInput.value;
       const dueDate = els.taskDueDateInput.value;
-      const projectId = els.taskProjectInput.value
-
-      // Crie a tarefa
-      const task = createTask(title, dueDate, projectId);
-
-      // encontrar o projeto correto e adicionar a tarefa
-      const project = projetos.find(p => p.getId() === projectId)
-      if (project) {
-        project.addTask(task)
-        window.alert('Tarefas do projeto:', project.getTasks())
+      const projectId = els.taskProjectInput.value;
+      if (!title.trim() || !projectId) return;
+      const task = handleCreateTask(title, dueDate, projectId);
+      if (task) {
+        createTaskInterface(task); // <-- Adicione esta linha!
       }
-    })
+    });
   }
-})
+
+
+  // Renderização
+  
+});
+
