@@ -20,14 +20,23 @@ export function createTaskInterface(task) {
   const taskDivDueDate = document.createElement('p');
   taskDivDueDate.classList.add('taskDeadline');
   taskDivDueDate.textContent = task.getDueDate() ? `Prazo: ${task.getDueDate()}` : '';
+  
+  const deleteBtn = document.createElement('button');
+  deleteBtn.classList.add('deleteTaskBtn')
+  deleteBtn.textContent = 'excluir'
+
 
   taskDiv.appendChild(taskDivTitle);
   taskDiv.appendChild(taskDivDueDate);
+  taskDiv.appendChild(deleteBtn)
 
   if (els.tasksContainer) {
     els.tasksContainer.appendChild(taskDiv);
   }
 };
+
+
+
 
 // função que renderiza os projetos e tarefas na interface
 export function renderProjectsTasks(project) {
@@ -39,6 +48,10 @@ export function renderProjectsTasks(project) {
   })
 };
 
+
+
+
+// função que mostra as tarefas do projeto selecionado
 export function showTasksForProject(projectId) {
   const els = getEls();
   if (!els.tasksContainer) return;
@@ -51,3 +64,7 @@ export function showTasksForProject(projectId) {
     }
   });
 }
+
+
+
+// deletar tarefa

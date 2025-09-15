@@ -1,7 +1,7 @@
 import getEls from './dom.js';
 import { createProject, addProjectButton } from './criarProjeto.js';
 import { createTask } from './criarTarefa.js';
-import { renderProjectsTasks, createTaskInterface } from './render.js'
+import { renderProjectsTasks, createTaskInterface, showTasksForProject } from './render.js'
 
 // Array global de projetos
 export const projetos = [];
@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
   // Salvar novo projeto
   if (els.submitProjectBtn) {
     els.submitProjectBtn.addEventListener('click', () => {
@@ -105,13 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!title.trim() || !projectId) return;
       const task = handleCreateTask(title, dueDate, projectId);
       if (task) {
-        createTaskInterface(task); // <-- Adicione esta linha!
+        createTaskInterface(task); // Renderiza a tarefa na interface
       }
     });
   }
 
 
-  // Renderização
+  // Excluir
   
 });
-
