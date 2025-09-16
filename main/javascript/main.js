@@ -118,10 +118,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Excluir
-  if (els.deleteTaskBtn) {
-    els.deleteTaskBtn.addEventListener('click', () => {
-      removeTask(task.getId());
-      deleteTaskFromDOM(task.getId())
+  if (els.tasksContainer) {
+    els.tasksContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('deleteTaskBtn')) {
+        const taskDiv = e.target.closest('.task');
+        const taskId = taskDiv.id.replace('task-', ''); // Extrai taskId
+        const projectId = taskDiv.getAttribute('data-project-id');
+
+
+        const project = projetos.find(p => p.getId() === projectId);
+        if (project) {
+          project.removeTask(taskId); // Remove do array
+          deleteTaskFromDOM(taskId); // Remove do DOM
+          showTasksForProject(projectId); // Atualiza a exibição
+        }
+      }
     })
   }
 

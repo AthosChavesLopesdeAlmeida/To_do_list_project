@@ -72,9 +72,7 @@ export function showTasksForProject(projectId) {
 export function deleteTaskFromDOM(taskId) {
   const els = getEls();
   const taskDiv = document.getElementById(`task-${taskId}`);
-
   if (taskDiv) {
-    taskDiv.remove()
+    taskDiv.remove();
   }
-
 }
