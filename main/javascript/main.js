@@ -1,7 +1,7 @@
 import getEls from './dom.js';
 import { createProject, addProjectButton } from './criarProjeto.js';
 import { createTask } from './criarTarefa.js';
-import { renderProjectsTasks, createTaskInterface, showTasksForProject } from './render.js'
+import { renderProjectsTasks, createTaskInterface, showTasksForProject, deleteTaskFromDOM} from './render.js'
 
 // Array global de projetos
 export const projetos = [];
@@ -44,6 +44,11 @@ function handleCreateTask(title, dueDate, projectId) {
   }
   return null;
 }
+
+
+
+
+
 
 
 
@@ -113,5 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Excluir
-  
+  if (els.deleteTaskBtn) {
+    els.deleteTaskBtn.addEventListener('click', () => {
+      removeTask(task.getId());
+      deleteTaskFromDOM(task.getId())
+    })
+  }
+
 });

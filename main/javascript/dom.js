@@ -20,6 +20,8 @@ export default function getEls() {
 
     mainContent: document.getElementById('container'),
 
-    tasksContainer: document.getElementById('tasksContainer')
+    tasksContainer: document.getElementById('tasksContainer'),
+
+    deleteTaskBtn: document.getElementsByClassName('deleteTaskBtn')
   };
 }

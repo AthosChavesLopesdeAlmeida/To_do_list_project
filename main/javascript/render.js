@@ -68,3 +68,13 @@ export function showTasksForProject(projectId) {
 
 
 // deletar tarefa
+
+export function deleteTaskFromDOM(taskId) {
+  const els = getEls();
+  const taskDiv = document.getElementById(`task-${taskId}`);
+
+  if (taskDiv) {
+    taskDiv.remove()
+  }
+
+}
